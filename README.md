@@ -8,6 +8,16 @@ content for Udacity's cloud developer nanodegree
 
 
 ## Getting Setup
+
+* Node and NPM
+* Ionic CLI
+* Python3 and PIP
+* AWS account
+* AWS CLI
+* Postbird
+* Postman
+
+
 ### Installing Node and NPM
 This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from https://nodejs.com/en/download.
 
@@ -41,7 +51,7 @@ Typescript is a flavor of JavaScript that forces hard typing on variables and me
 ### Github link to basic server
 In this lesson, we'll be referencing a prewritten, simple server which uses Node/Express. The github link to clone and follow along is: https://github.com/grutt/udacity-c2-basic-server. Alternatively, you can clone the repo for the entire nanodegree cloud-developer and find the files for this course in the path https://github.com/udacity/cloud-developer/tree/master/course-02/exercises
 
-### Installing project dependencies
+#### Installing project dependencies
 This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository. After cloning, open your terminal in the repo directory and run:
 ```
 npm install
