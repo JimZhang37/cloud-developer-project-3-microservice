@@ -60,7 +60,10 @@ npm install
 tip: npm i is shorthand for npm install
 
 ### Configure Database(AWS:RDS)
-Secrets about AWS RDS are stored in a local file, for example `~/.profile`
+In your chosen AWS region, you can create a postgres db instance. You can use postbird to connect to this db instance once its status is running. I find that its database name is not the value I specified in the console. It is named `template1` in my case. Once its connection is ready, you can put it down in a local file when you run your backend in your local computer.
+
+
+Secrets about AWS RDS are stored in a local file, for example `~/.bash_profile`
 ```
 export POSTGRESS_USERNAME=1
 export POSTGRESS_PASSWORD=2
@@ -72,12 +75,14 @@ export AWS_PROFILE=7
 export AWS_BUCKET=8
 export JWT_SECRET=9
 ```
-The problem is `~/.profile` can't be run when a terminal is open. Should I use `~/.bash_profile` or run command `source ~/.profile` after a terminal is opened?
-[about ~/.profile and ~/.bash_profile](https://unix.stackexchange.com/questions/83742/what-is-the-difference-between-profile-and-bash-profile-and-why-dont-i-have-a)
+I don't have `~/.profile` in my Mac, so I use `~/.bash_profile`.[about ~/.profile and ~/.bash_profile](https://unix.stackexchange.com/questions/83742/what-is-the-difference-between-profile-and-bash-profile-and-why-dont-i-have-a)
 ### Configure File Storage(AWS:S3)
+You also need to create a new S3 bucket and save its bucket address in the `~/.bash_profile`.
+
+### Authentication
 
 ### Configure udacity-c3-frontend
-`/udacity-c3-frontend/src/environments/environment.ts`
+In this file, `/udacity-c3-frontend/src/environments/environment.ts`, you must specify the Host used for backend.
 
 ```
 export const environment = {
