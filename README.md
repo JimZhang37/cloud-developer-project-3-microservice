@@ -28,10 +28,10 @@ The Ionic Command Line Interface is required to serve and build the frontend. In
 Python is a powerful programming language used for anything from quick scripts through data science. We'll use Python for the final project and it is required for some development tools like the AWS CLI. Instructions to download and install Python for your OS can be found here: https://www.python.org/downloads/
 
 ### Amazon Web Services (AWS)
-Account Setup
+#### Account Setup
 We'll be provisioning cloud resources throughout the next few lessons. You'll need an AWS account to set up these resources. We'll be taking advantage of the free tier offerings so there should be no costs to set up the resources we'll be using. Create a new account here: https://portal.aws.amazon.com/billing/signup#/
 
-### AWS CLI
+#### AWS CLI
 We'll interface with AWS using the Command Line Interface (CLI). Instructions to download and install the AWS CLI for your OS can be found here: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
 
 ### Installing useful tools
