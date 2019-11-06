@@ -2,9 +2,13 @@
 content for Udacity's cloud developer nanodegree
 
 ## Table of Contents
+* [General Info](#General-Info)
 * [Getting Setup](#Getting-Setup)
 * [Standing up a Cloud Capable Server](#Standing-up-a-Cloud-Capable-Server)
 * [Verification Testing](#Verification-Testing)
+* [Features](#Features)
+
+## General Info
 
 
 ## Getting Setup
@@ -80,3 +84,7 @@ The command npm test is used to run all files that match the pattern *.tests.ts 
 We've included a postman configuration file in the example repo. *.postman_collection.js. This can be imported into your local Postman.
 
 When Gabe is showing how to run all integration tests at once in Postman, and says "we can choose our environment", he is selecting the "udacity-c2-basic-server" folder.
+
+## Features
+
+### To do:
