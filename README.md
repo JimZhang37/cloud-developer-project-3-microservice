@@ -2,9 +2,9 @@
 content for Udacity's cloud developer nanodegree
 
 ## Table of Contents
-* [Getting Setup] ( # Getting Setup)
-* []()
-* []()
+* [Getting Setup](#Getting-Setup)
+* [Standing up a Cloud Capable Server](#Standing-up-a-Cloud-Capable-Server)
+* [Verification Testing](#Verification-Testing)
 
 
 ## Getting Setup
