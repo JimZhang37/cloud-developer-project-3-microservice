@@ -4,6 +4,7 @@ content for Udacity's cloud developer nanodegree
 ## Table of Contents
 * [General Info](#General-Info)
 * [Getting Setup](#Getting-Setup)
+* [Configuration](#Configuration)
 * [Verification Testing](#Verification-Testing)
 * [Features](#Features)
 
@@ -48,17 +49,32 @@ Postbird is a useful client GUI (graphical user interface) to interact with our 
 #### Postman
 Postman is a useful tool to issue and save requests. Postman can create GET, PUT, POST, etc. requests complete with bodies. It can also be used to test endpoints automatically. We've included a collection in the starter code repository (./udacity-c2-restapi.postman_collection.json) which contains example requests.
 
+## Configuration
 ### Installing project dependencies
-This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository. After cloning, open your terminal in the repo directory and run:
+Both backend and frontend use NPM to manage software dependencies. NPM Relies on the package.json file located in the roots of backend and frontend folders. After cloning, open your terminal in each folder run:
 
 ```
 npm install
 ```
 tip: npm i is shorthand for npm install
 
+### Configure Database(AWS:RDS)
+Secrets about AWS RDS are stored in a local file, for example `~/.profile`
+```
+export POSTGRESS_USERNAME=1
+export POSTGRESS_PASSWORD=2
+export POSTGRESS_DB=3
+export POSTGRESS_HOST=4
+export dialect=postgres
+export AWS_REGION=6
+export AWS_PROFILE=7
+export AWS_BUCKET=8
+export JWT_SECRET=9
+```
+
+### Configure File Storage(AWS:S3)
 
 ## Verification Testing
-The following video will cover units tests and integration tests.
 
 ### Unit Tests
 Ensure our atomic functions and methods perform their tasks correctly or fail appropriately. We'll be playing with Mocha and Chai as our unit testing framework. We'll be covering the basics so checkout the docs!
