@@ -20,6 +20,7 @@ content for Udacity's cloud developer nanodegree
 * AWS CLI
 * Postbird
 * Postman
+* Microsoft Code
 
 ### Installing Node and NPM
 This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from https://nodejs.com/en/download.
@@ -74,6 +75,17 @@ export JWT_SECRET=9
 The problem is `~/.profile` can't be run when a terminal is open. Should I use `~/.bash_profile` or run command `source ~/.profile` after a terminal is opened?
 [about ~/.profile and ~/.bash_profile](https://unix.stackexchange.com/questions/83742/what-is-the-difference-between-profile-and-bash-profile-and-why-dont-i-have-a)
 ### Configure File Storage(AWS:S3)
+
+### Configure udacity-c3-frontend
+`/udacity-c3-frontend/src/environments/environment.ts`
+
+```
+export const environment = {
+  production: false,
+  appName: 'Udagram',
+  apiHost: 'http://localhost:8080/api/v0'
+};
+```
 
 ## Verification Testing
 
