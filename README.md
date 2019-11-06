@@ -71,7 +71,8 @@ export AWS_PROFILE=7
 export AWS_BUCKET=8
 export JWT_SECRET=9
 ```
-
+The problem is `~/.profile` can't be run when a terminal is open. Should I use `~/.bash_profile` or run command `source ~/.profile` after a terminal is opened?
+[about ~/.profile and ~/.bash_profile](https://unix.stackexchange.com/questions/83742/what-is-the-difference-between-profile-and-bash-profile-and-why-dont-i-have-a)
 ### Configure File Storage(AWS:S3)
 
 ## Verification Testing
