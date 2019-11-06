@@ -1,10 +1,9 @@
-# cloud-developer
+# Microservice practice in cloud-developer udacity course
 content for Udacity's cloud developer nanodegree
 
 ## Table of Contents
 * [General Info](#General-Info)
 * [Getting Setup](#Getting-Setup)
-* [Standing up a Cloud Capable Server](#Standing-up-a-Cloud-Capable-Server)
 * [Verification Testing](#Verification-Testing)
 * [Features](#Features)
 
@@ -21,9 +20,13 @@ content for Udacity's cloud developer nanodegree
 * Postbird
 * Postman
 
-
 ### Installing Node and NPM
 This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from https://nodejs.com/en/download.
+
+Node (aka NodeJs) is a powerful framework to build network applications using JavaScript (in our case using TypeScript) outside of browsers. It has an asynchronous concurrent model which releases the developer from many concerns involving threading and dead-locking. Node is used as our server framework along with Express to handle web http requests and responses.
+
+#### Introduction to TypeScript
+Typescript is a flavor of JavaScript that forces hard typing on variables and methods. This prevents implementation errors like passing a string instead of a number. It compiles to pure JavaScript.
 
 ### Installing Ionic Cli
 The Ionic Command Line Interface is required to serve and build the frontend. Instructions for installing the CLI can be found in the Ionic Framework Docs.
@@ -45,25 +48,14 @@ Postbird is a useful client GUI (graphical user interface) to interact with our 
 #### Postman
 Postman is a useful tool to issue and save requests. Postman can create GET, PUT, POST, etc. requests complete with bodies. It can also be used to test endpoints automatically. We've included a collection in the starter code repository (./udacity-c2-restapi.postman_collection.json) which contains example requests.
 
-## Standing up a Cloud Capable Server
-### Introduction to Node
-Node (aka NodeJs) is a powerful framework to build network applications using JavaScript (in our case using TypeScript) outside of browsers. It has an asynchronous concurrent model which releases the developer from many concerns involving threading and dead-locking. Node is used as our server framework along with Express to handle web http requests and responses.
-
-### Introduction to TypeScript
-Typescript is a flavor of JavaScript that forces hard typing on variables and methods. This prevents implementation errors like passing a string instead of a number. It compiles to pure JavaScript.
-
-### Github link to basic server
-In this lesson, we'll be referencing a prewritten, simple server which uses Node/Express. The github link to clone and follow along is: https://github.com/grutt/udacity-c2-basic-server. Alternatively, you can clone the repo for the entire nanodegree cloud-developer and find the files for this course in the path https://github.com/udacity/cloud-developer/tree/master/course-02/exercises
-
-#### Installing project dependencies
+### Installing project dependencies
 This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository. After cloning, open your terminal in the repo directory and run:
+
 ```
 npm install
 ```
 tip: npm i is shorthand for npm install
 
-### Installing Postman
-We'll be using a tool called Postman to make requests to our development server. Download and install Postman
 
 ## Verification Testing
 The following video will cover units tests and integration tests.
