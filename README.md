@@ -76,11 +76,50 @@ export AWS_BUCKET=8
 export JWT_SECRET=9
 ```
 I don't have `~/.profile` in my Mac, so I use `~/.bash_profile`.[about ~/.profile and ~/.bash_profile](https://unix.stackexchange.com/questions/83742/what-is-the-difference-between-profile-and-bash-profile-and-why-dont-i-have-a)
+
+In `/udacity/src/sequelize.ts`, we use these parameters to instantiate a connection with a database.
+
+```
+// Instantiate new Sequelize instance!
+export const sequelize = new Sequelize({
+  "username": c.username,
+  "password": c.password,
+  "database": c.database,
+  "host":     c.host,
+
+  dialect: 'postgres',
+  storage: ':memory:',
+});
+```
 ### Configure File Storage(AWS:S3)
 You also need to create a new S3 bucket and save its bucket address in the `~/.bash_profile`.
 
-### Authentication
+In `/udacity-c3-restapi`, we establish a connection with AWS S3 bucket.
 
+```
+const c = config.dev;
+
+//Configure AWS
+var credentials = new AWS.SharedIniFileCredentials({profile: 'default'});
+AWS.config.credentials = credentials;
+
+export const s3 = new AWS.S3({
+  signatureVersion: 'v4',
+  region: c.aws_reigion,
+  params: {Bucket: c.aws_media_bucket}
+});
+```
+### Authentication
+In `udacity-c3-restapi/src/controllers/v0/users/routes/auth.router.ts`, we use jwt secret to authorize users.
+
+How do we get JWT secret?
+
+```
+function generateJWT(user: User): string {
+    console.log("generateJWT")
+    return jwt.sign(user.short(), c.config.jwt.secret)
+}
+```
 ### Configure udacity-c3-frontend
 In this file, `/udacity-c3-frontend/src/environments/environment.ts`, you must specify the Host used for backend.
 
