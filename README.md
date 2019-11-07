@@ -59,11 +59,10 @@ npm install
 ```
 tip: npm i is shorthand for npm install
 
-### Configure Database(AWS:RDS)
-In your chosen AWS region, you can create a postgres db instance. You can use postbird to connect to this db instance once its status is running. I find that its database name is not the value I specified in the console. It is named `template1` in my case. Once its connection is ready, you can put it down in a local file when you run your backend in your local computer.
+### Place to store secrets
 
+Secrets are stored in a local terminal profile, for example `~/.bash_profile`. You must write the following variables in your terminal profile. 
 
-Secrets about AWS RDS are stored in a local file, for example `~/.bash_profile`
 ```
 export POSTGRESS_USERNAME=1
 export POSTGRESS_PASSWORD=2
@@ -76,6 +75,9 @@ export AWS_BUCKET=8
 export JWT_SECRET=9
 ```
 I don't have `~/.profile` in my Mac, so I use `~/.bash_profile`.[about ~/.profile and ~/.bash_profile](https://unix.stackexchange.com/questions/83742/what-is-the-difference-between-profile-and-bash-profile-and-why-dont-i-have-a)
+
+### Configure Database(AWS:RDS)
+In your chosen AWS region, you can create a postgres db instance. You can use postbird to connect to this db instance once its status is running. I find that its database name is not the value I specified in the console. It is named `template1` in my case. Once its connection is ready, you can put it down in a local file when you run your backend in your local computer.
 
 In `/udacity/src/sequelize.ts`, we use these parameters to instantiate a connection with a database.
 
@@ -92,9 +94,14 @@ export const sequelize = new Sequelize({
 });
 ```
 ### Configure File Storage(AWS:S3)
+You need to create a S3 bucket.
+* encryption, server-side encryption with s3 managed key
+* permission, don't give public access as this is a bucket used for application
+* CORS policy, please copy `udacity-c3-restapi/s3_cors.xml` when you specify CORS in your bucket
+
 You also need to create a new S3 bucket and save its bucket address in the `~/.bash_profile`.
 
-In `/udacity-c3-restapi`, we establish a connection with AWS S3 bucket.
+In `/udacity-c3-restapi/src/aws.ts`, we establish a connection with AWS S3 bucket.
 
 ```
 const c = config.dev;
@@ -109,6 +116,10 @@ export const s3 = new AWS.S3({
   params: {Bucket: c.aws_media_bucket}
 });
 ```
+
+Your AWS credentials are stored in `~/.aws/credentials` and `~/.aws/config`. You can use editor or `aws configure` to edit them. When you specify `default` for your `AWS_PROFILE` in `~/.bash_profile`, the corresponding value for AWS credentials will be fetched. You need to set up your AWS credential when you install AWS CLI.
+
+After the application is deployed in cloud, AWS role will be used instead of user with programmatic access.
 ### Authentication
 In `udacity-c3-restapi/src/controllers/v0/users/routes/auth.router.ts`, we use jwt secret to authorize users.
 
@@ -129,6 +140,12 @@ export const environment = {
   appName: 'Udagram',
   apiHost: 'http://localhost:8080/api/v0'
 };
+```
+
+### add new package with npm
+```
+npm i bcrypt --save
+npm i --save-dev @type/bcrypt
 ```
 
 ## Verification Testing
