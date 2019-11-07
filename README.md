@@ -142,6 +142,14 @@ export const environment = {
 };
 ```
 
+You also need to run `npm i` and ``(if you didn't install ionic) in your frontend folder.
+
+To run your frontend, you run the command:
+```
+ionic serve
+```
+
+[Install ionic](https://ionicframework.com/docs/cli)
 ### add new package with npm
 ```
 npm i bcrypt --save
