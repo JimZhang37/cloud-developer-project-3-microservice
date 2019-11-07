@@ -1,9 +1,41 @@
 import { Router, Request, Response } from 'express';
 import { FeedItem } from '../models/FeedItem';
-import { requireAuth } from '../../users/routes/auth.router';
+
+import * as jwt from 'jsonwebtoken';
+import * as c from '../../../../config/config';
+import { NextFunction } from 'connect';
+
+//import { requireAuth } from '../../users/routes/auth.router';
 import * as AWS from '../../../../aws';
 
 const router: Router = Router();
+
+
+export function requireAuth(req: Request, res: Response, next: NextFunction) {
+    //  return next();
+       if (!req.headers || !req.headers.authorization){
+           console.log("1");
+   
+           return res.status(401).send({ message: 'No authorization headers.' });
+       }
+       
+   
+       const token_bearer = req.headers.authorization.split(' ');
+   
+       if(token_bearer.length != 2){
+   
+           return res.status(401).send({ message: 'Malformed token.' });
+       }
+       
+       const token = token_bearer[1];
+   
+       return jwt.verify(token, c.config.jwt.secret , (err, decoded) => {
+         if (err) {
+           return res.status(500).send({ auth: false, message: 'Failed to authenticate.' });
+         }
+         return next();
+       });
+   }
 
 // Get all feed items
 router.get('/', async (req: Request, res: Response) => {
@@ -43,7 +75,7 @@ router.get('/signed-url/:fileName',
 });
 
 // Post meta data and the filename after a file is uploaded 
-// NOTE the file name is they key name in the s3 bucket.
+// NOTE the file name is the key name in the s3 bucket.
 // body : {caption: string, fileName: string};
 router.post('/', 
     requireAuth, 
