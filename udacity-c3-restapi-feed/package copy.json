@@ -1,5 +1,5 @@
 {
-  "name": "udacity-yh-restapi-user",
+  "name": "udacity-c2-restapi",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",

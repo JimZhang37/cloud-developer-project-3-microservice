@@ -156,6 +156,31 @@ npm i bcrypt --save
 npm i --save-dev @type/bcrypt
 ```
 
+# Tasks
+## Task 1: 
+```
+For simplicity we use a single repo
+Create a new folder for feed service
+Copy the backend service into the the new folders repo
+Remove the feed part from the user service
+Remove and adjust the user part from the feed service
+Start all service locally
+```
+## Task 2:
+```
+* Create a Dockerfile for all the services
+* Create a ngnix proxy as Dockerfile
+* Build the images. You can build all images together with `docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel`, or you can build each image separately with `docker build -t zhangyhgg/udacity-restapi-feed .`
+* Run the images as container `docker run --publish 8080:8080 --name feed zhangyhgg/udacity-restapi-feed`
+* Use docker-compose to deploy the completed application `docker-compose up` in the folder where file `docker-compose.yaml` is located.
+```
+
+## Task 3:
+## Task 4:
+## Task 5:
+## Task 6:
+
+
 ## Verification Testing
 
 ### Unit Tests
@@ -167,6 +192,11 @@ Integration Tests ensure every endpoint in our software package perform their ta
 #### Running Mocha and Chai Tests
 The command npm test is used to run all files that match the pattern *.tests.ts and is defined in package.json.
 
+No tests definded here.
+```
+npm test
+```
+
 ### Using Postman to Define Integration Tests
 
 
@@ -175,6 +205,8 @@ We've included a postman configuration file in the example repo. *.postman_colle
 
 When Gabe is showing how to run all integration tests at once in Postman, and says "we can choose our environment", he is selecting the "udacity-c2-basic-server" folder.
 
+## Run Docker
+you need to specify environment variables in docker run when you want to run a single docker image for backend. If you use docker composer, the environment variables are specified in the yml file. 
 ## Features
 
 ### To do:
