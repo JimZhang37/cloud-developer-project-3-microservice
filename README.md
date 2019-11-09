@@ -159,26 +159,43 @@ npm i --save-dev @type/bcrypt
 # Tasks
 ## Task 1: 
 ```
-For simplicity we use a single repo
-Create a new folder for feed service
-Copy the backend service into the the new folders repo
-Remove the feed part from the user service
-Remove and adjust the user part from the feed service
-Start all service locally
+1 For simplicity we use a single repo
+2 Create a new folder for feed service
+3 Copy the backend service into the the new folders repo
+4 Remove the feed part from the user service
+5 Remove and adjust the user part from the feed service; The Authorizer is needed!
+6 Start all service locally. Two backend services share one port, so they can't run together. This issue will be addressed in the next task.
 ```
 ## Task 2:
 ```
-* Create a Dockerfile for all the services
-* Create a ngnix proxy as Dockerfile
-* Build the images. You can build all images together with `docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel`, or you can build each image separately with `docker build -t zhangyhgg/udacity-restapi-feed .`
-* Run the images as container `docker run --publish 8080:8080 --name feed zhangyhgg/udacity-restapi-feed`
-* Use docker-compose to deploy the completed application `docker-compose up` in the folder where file `docker-compose.yaml` is located.
+1 Create a Dockerfile for all the services
+2 Create a ngnix proxy as Dockerfile
+3 Build the images. You can build all images together with `docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel`, or you can build each image separately with `docker build -t zhangyhgg/udacity-restapi-feed .`
+4 Run the images as container `docker run --publish 8080:8080 --name feed zhangyhgg/udacity-restapi-feed`
+5 Use docker-compose to deploy the completed application `docker-compose up` in the folder where file `docker-compose.yaml` is located.
 ```
 
+
 ## Task 3:
+```
+1 Create your first kubernetes cluster on AWS with KubeOne https://github.com/kubermatic/kubeone/blob/master/docs/quickstart-aws.md
+2 Create a pod for the feed service
+3 Convert the pod into a deployment
+4 Write deployment for images
+```
 ## Task 4:
+```
+1 Create configmaps and secrets for your application
+2 Create kubernetes service for the deployments
+3 Expose the application locally (check kubectl port-forward)
+4 Scale your application
+```
 ## Task 5:
-## Task 6:
+```
+1 Connect TravisCI with you Github repository
+2 Add a .travis.yml to you repo
+3 Build the container with TRavis. In .travis.yml file, the docker-compose build command is specified.
+```
 
 
 ## Verification Testing
