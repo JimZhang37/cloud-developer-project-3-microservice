@@ -18,7 +18,7 @@ before_install:
 
 
 install:
-  - docker build -t zhangyhgg/reverseproxy udacity-c3-development/docker
+  - docker build -t zhangyhgg/reverseproxy udacity-c3-deployment/docker
 deploy:
   provider: script
   script: bash docker_push
