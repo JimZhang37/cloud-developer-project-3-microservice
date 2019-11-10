@@ -1,3 +1,6 @@
 #!/bin/bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+docker push zhangyhgg/reverseproxy
+docker push zhangyhgg/udacity-restapi-feed
 docker push zhangyhgg/udacity-restapi-user
+docker push zhangyhgg/udacity-frontend:local
