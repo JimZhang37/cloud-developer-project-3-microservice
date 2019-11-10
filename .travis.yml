@@ -20,5 +20,9 @@ before_install:
 install:
   - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel 
 
-
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: 03-docker-yh
 

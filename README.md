@@ -1,5 +1,6 @@
 # Microservice practice in cloud-developer udacity course
 content for Udacity's cloud developer nanodegree
+[![Build Status](https://travis-ci.com/JimZhang37/cloud-developer-project-3-microservice.svg?branch=03-docker-yh)](https://travis-ci.com/JimZhang37/cloud-developer-project-3-microservice)
 
 ## Table of Contents
 * [General Info](#General-Info)
