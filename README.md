@@ -12,7 +12,7 @@ content for Udacity's cloud developer nanodegree
 
 # General Info
 
-This is the second task to turn the app into docker.
+This is the second task to turn the app into docker. My target is to upload docker images to dockerhub.
 # Tasks
 ## Task 1: 
 ```
