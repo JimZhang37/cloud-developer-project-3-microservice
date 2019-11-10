@@ -2,17 +2,67 @@
 content for Udacity's cloud developer nanodegree
 [![Build Status](https://travis-ci.com/JimZhang37/cloud-developer-project-3-microservice.svg?branch=03-docker-yh)](https://travis-ci.com/JimZhang37/cloud-developer-project-3-microservice)
 
-## Table of Contents
+# Table of Contents
 * [General Info](#General-Info)
+* [Tasks](#Tasks)
 * [Getting Setup](#Getting-Setup)
 * [Configuration](#Configuration)
 * [Verification Testing](#Verification-Testing)
 * [Features](#Features)
 
-## General Info
+# General Info
+
+This is the second task to turn the app into docker.
+# Tasks
+## Task 1: 
+```
+1 For simplicity we use a single repo
+2 Create a new folder for feed service
+3 Copy the backend service into the the new folders repo
+4 Remove the feed part from the user service
+5 Remove and adjust the user part from the feed service; The Authorizer is needed!
+6 Start all service locally. Two backend services share one port, so they can't run together. This issue will be addressed in the next task.
+```
+## Task 2: Docker
+```
+1 Create a Dockerfile for all the services
+2 Create a ngnix proxy as Dockerfile
+3 Build the images. You can build all images together with `docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel`, or you can build each image separately with `docker build -t zhangyhgg/udacity-restapi-feed .`
+4 Run the images as container `docker run --publish 8080:8080 --name feed zhangyhgg/udacity-restapi-feed`
+5 Use docker-compose to deploy the completed application `docker-compose up` in the folder where file `docker-compose.yaml` is located.
+```
 
 
-## Getting Setup
+## Task 3: K8s
+```
+1 Create your first kubernetes cluster on AWS with KubeOne https://github.com/kubermatic/kubeone/blob/master/docs/quickstart-aws.md
+2 Create a pod for the feed service. kubectl apply -f pod.yaml
+3 Convert the pod into a deployment. kubectl apply -f *deployment.ymal.
+4 Write deployment for images
+```
+## Task 4: Service Config
+```
+1 Create configmaps and secrets for your application. It's used to provide configurations, like database id, aws credentials, etc. 
+2 Create kubernetes service for the deployments. Service is used for service discovery when two or more instance from the same type is running. 
+3 Expose the application locally (check kubectl port-forward). Therefore, if you type http://localhost:8100, your traffic will be forwarded to frontend service inside k8s.
+4 Scale your application. You are able to scale each service independently when you specify the replicas number. 
+```
+
+```
+
+k port-forward service/reverseproxy 8080:8080
+kubectl scale deployment/user --replicas=10
+```
+
+## Task 5: CI
+```
+1 Connect TravisCI with you Github repository
+2 Add a .travis.yml to you repo
+3 Build the container with TRavis. In .travis.yml file, the docker-compose build command is specified.
+```
+
+
+# Getting Setup
 
 * Node and NPM
 * Ionic CLI
@@ -51,7 +101,7 @@ Postbird is a useful client GUI (graphical user interface) to interact with our 
 #### Postman
 Postman is a useful tool to issue and save requests. Postman can create GET, PUT, POST, etc. requests complete with bodies. It can also be used to test endpoints automatically. We've included a collection in the starter code repository (./udacity-c2-restapi.postman_collection.json) which contains example requests.
 
-## Configuration
+# Configuration
 ### Installing project dependencies
 Both backend and frontend use NPM to manage software dependencies. NPM Relies on the package.json file located in the roots of backend and frontend folders. After cloning, open your terminal in each folder run:
 
@@ -157,56 +207,7 @@ npm i bcrypt --save
 npm i --save-dev @type/bcrypt
 ```
 
-# Tasks
-## Task 1: 
-```
-1 For simplicity we use a single repo
-2 Create a new folder for feed service
-3 Copy the backend service into the the new folders repo
-4 Remove the feed part from the user service
-5 Remove and adjust the user part from the feed service; The Authorizer is needed!
-6 Start all service locally. Two backend services share one port, so they can't run together. This issue will be addressed in the next task.
-```
-## Task 2: Docker
-```
-1 Create a Dockerfile for all the services
-2 Create a ngnix proxy as Dockerfile
-3 Build the images. You can build all images together with `docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel`, or you can build each image separately with `docker build -t zhangyhgg/udacity-restapi-feed .`
-4 Run the images as container `docker run --publish 8080:8080 --name feed zhangyhgg/udacity-restapi-feed`
-5 Use docker-compose to deploy the completed application `docker-compose up` in the folder where file `docker-compose.yaml` is located.
-```
-
-
-## Task 3: K8s
-```
-1 Create your first kubernetes cluster on AWS with KubeOne https://github.com/kubermatic/kubeone/blob/master/docs/quickstart-aws.md
-2 Create a pod for the feed service. kubectl apply -f pod.yaml
-3 Convert the pod into a deployment. kubectl apply -f *deployment.ymal.
-4 Write deployment for images
-```
-## Task 4: Service Config
-```
-1 Create configmaps and secrets for your application. It's used to provide configurations, like database id, aws credentials, etc. 
-2 Create kubernetes service for the deployments. Service is used for service discovery when two or more instance from the same type is running. 
-3 Expose the application locally (check kubectl port-forward). Therefore, if you type http://localhost:8100, your traffic will be forwarded to frontend service inside k8s.
-4 Scale your application. You are able to scale each service independently when you specify the replicas number. 
-```
-
-```
-
-k port-forward service/reverseproxy 8080:8080
-kubectl scale deployment/user --replicas=10
-```
-
-## Task 5: CI
-```
-1 Connect TravisCI with you Github repository
-2 Add a .travis.yml to you repo
-3 Build the container with TRavis. In .travis.yml file, the docker-compose build command is specified.
-```
-
-
-## Verification Testing
+# Verification Testing
 
 ### Unit Tests
 Ensure our atomic functions and methods perform their tasks correctly or fail appropriately. We'll be playing with Mocha and Chai as our unit testing framework. We'll be covering the basics so checkout the docs!
@@ -232,6 +233,6 @@ When Gabe is showing how to run all integration tests at once in Postman, and sa
 
 ## Run Docker
 you need to specify environment variables in docker run when you want to run a single docker image for backend. If you use docker composer, the environment variables are specified in the yml file. 
-## Features
+# Features
 
 ### To do:
