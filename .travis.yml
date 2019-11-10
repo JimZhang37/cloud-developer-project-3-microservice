@@ -19,7 +19,7 @@ before_install:
 
 
 install:
-  - docker build -t zhangyhgg/udacity-restapi-user /udacity-c3-restapi-user/
+  - docker build -t zhangyhgg/udacity-restapi-user udacity-c3-restapi-user
 deploy:
   provider: script
   script: bash docker_push
