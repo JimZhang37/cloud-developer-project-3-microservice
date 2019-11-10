@@ -166,7 +166,7 @@ npm i --save-dev @type/bcrypt
 5 Remove and adjust the user part from the feed service; The Authorizer is needed!
 6 Start all service locally. Two backend services share one port, so they can't run together. This issue will be addressed in the next task.
 ```
-## Task 2:
+## Task 2: Docker
 ```
 1 Create a Dockerfile for all the services
 2 Create a ngnix proxy as Dockerfile
@@ -176,21 +176,28 @@ npm i --save-dev @type/bcrypt
 ```
 
 
-## Task 3:
+## Task 3: K8s
 ```
 1 Create your first kubernetes cluster on AWS with KubeOne https://github.com/kubermatic/kubeone/blob/master/docs/quickstart-aws.md
-2 Create a pod for the feed service
-3 Convert the pod into a deployment
+2 Create a pod for the feed service. kubectl apply -f pod.yaml
+3 Convert the pod into a deployment. kubectl apply -f *deployment.ymal.
 4 Write deployment for images
 ```
-## Task 4:
+## Task 4: Service Config
 ```
-1 Create configmaps and secrets for your application
-2 Create kubernetes service for the deployments
-3 Expose the application locally (check kubectl port-forward)
-4 Scale your application
+1 Create configmaps and secrets for your application. It's used to provide configurations, like database id, aws credentials, etc. 
+2 Create kubernetes service for the deployments. Service is used for service discovery when two or more instance from the same type is running. 
+3 Expose the application locally (check kubectl port-forward). Therefore, if you type http://localhost:8100, your traffic will be forwarded to frontend service inside k8s.
+4 Scale your application. You are able to scale each service independently when you specify the replicas number. 
 ```
-## Task 5:
+
+```
+
+k port-forward service/reverseproxy 8080:8080
+kubectl scale deployment/user --replicas=10
+```
+
+## Task 5: CI
 ```
 1 Connect TravisCI with you Github repository
 2 Add a .travis.yml to you repo
