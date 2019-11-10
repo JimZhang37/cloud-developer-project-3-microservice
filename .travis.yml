@@ -4,7 +4,7 @@ services: docker
 
 env:
   - DOCKER_COMPOSE_VERSION=1.23.2
-
+  - secure: "Hhn94v2bDW9FY1elCdbmV57V0244zbGOrDMeW2dNHp6/WNDZvPmBwX2QYpcURvUkfX/AczQ/oYnyXFniiTYLHJMXnvnU8N5kzkM20MhitDMPM654A+/tnB+lK82J6uHR+6MIB2WaR5y1RnrwMKxgKm2ncuuRb461/k5LbXKODaXZYl/VXKnlS4/BAZ/CQRBSeryWOC3aURws0ZyWcJqHzcoxzUuYtcB3h4N4Uc+LPOp1JcCsgCYhl8Xlkpr0XIIkeYbLW7a35us29vo1ygEqHQ75nu4YbTFqxAuTk+LOuzbTGdHXX6Gm3s9+eNug1H45FKSxA2qy1/dma1K3TkUSvSZxMzvVxdb+CbP6VOaGj1pgbYAmIClsDVJWxNK231qXYNnc1Waq9p1/QlkG8vMOgXga+JxNvaYUCRieY09BzHfB12eueD/FAYyvW2BdElLAW/wSdE22J06Vtk8kXt9+03gzowILlz34H0DarYSY/CvbbqgoEtU1GWzNIPgcODxprfH0r535BvRZNffRxH77Rqvd1eEfiCGoWPFi496qP8tkvEU7y1TrnoYimaL1ICRqM1Zf7TBBoS0JaAqPXFEyMQXinT89LOZsxn6OFNJu7w4RpeHP+79evXEkZ1bQ4nIUKqcaUnrV1uS1MWW75DNitRrS+eWeFx0/zoe8NmCzJXY="
 before_install:
   - docker -v && docker-compose -v
   - sudo rm /usr/local/bin/docker-compose
