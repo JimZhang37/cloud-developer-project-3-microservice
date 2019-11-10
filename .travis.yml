@@ -1,28 +1,24 @@
 language: minimal
-
 services: docker
-
 env:
+  matrix:
   - DOCKER_COMPOSE_VERSION=1.23.2
-secure: 
-  - "Hhn94v2bDW9FY1elCdbmV57V0244zbGOrDMeW2dNHp6/WNDZvPmBwX2QYpcURvUkfX/AczQ/oYnyXFniiTYLHJMXnvnU8N5kzkM20MhitDMPM654A+/tnB+lK82J6uHR+6MIB2WaR5y1RnrwMKxgKm2ncuuRb461/k5LbXKODaXZYl/VXKnlS4/BAZ/CQRBSeryWOC3aURws0ZyWcJqHzcoxzUuYtcB3h4N4Uc+LPOp1JcCsgCYhl8Xlkpr0XIIkeYbLW7a35us29vo1ygEqHQ75nu4YbTFqxAuTk+LOuzbTGdHXX6Gm3s9+eNug1H45FKSxA2qy1/dma1K3TkUSvSZxMzvVxdb+CbP6VOaGj1pgbYAmIClsDVJWxNK231qXYNnc1Waq9p1/QlkG8vMOgXga+JxNvaYUCRieY09BzHfB12eueD/FAYyvW2BdElLAW/wSdE22J06Vtk8kXt9+03gzowILlz34H0DarYSY/CvbbqgoEtU1GWzNIPgcODxprfH0r535BvRZNffRxH77Rqvd1eEfiCGoWPFi496qP8tkvEU7y1TrnoYimaL1ICRqM1Zf7TBBoS0JaAqPXFEyMQXinT89LOZsxn6OFNJu7w4RpeHP+79evXEkZ1bQ4nIUKqcaUnrV1uS1MWW75DNitRrS+eWeFx0/zoe8NmCzJXY="
+  global:
+    secure: jcEWFx91dNu1RhhaiIGhE4tqWDhoFXRt5YQHye6qkcRRQfZHOGpml6RB3Qz8n/5SIdPg4fSmDIxRtqf1EHB7jzBMJsB1Z4RMWiJPwcu7FB6mFrUnSWlEkUAB2aGUJD6OO62dqJAy3UnekE1AOs1iqC7uozAAjh0GIBpan9YH4Y74094oeDx8lNXFvUmB09yy3OeBF4tp7tzDXJT/PH8nhErRbRQL2fGEOuBJuwt9zOK5y+WDkARRirzTmww76ubRICYLMJf0p41eG3dHZ7kx9S4LsFj7Fzs1cZgYCoZM1fSiHnzq24Id0NBkXsEHrGkQJKaBsqKmQME0Udw0bRyTU6gj9KJU8+Kj6TS8V8IKNnFi++4iaUJ3ZFhUVoYa5AmaBhzzYIOI5qot6TH/VYltObecvrBaqHkHRDeao8wkFjNdrrKKUw+CZT70Ouq+CQ6Oxvcc4rv22u/dA3Wf22L23vmMa/xMf5IKqRWK2OmFhMpM62rH/HFJ2EI/p+lSQWXqxwPlbFGOVHjrihP4zDPP2GxMEUZ/F4HsJU0BKj/yd8BHKAiK3Pjt1kosJ2IPiDu65/t6BrC+RGJK8zoB3+RNYcnBHHO5duDXZM5SUx/WPPV9xCqob8LL1NULoEp4UJpf/ECwZCNySJ9AaohPKjGVhkxzQXKKkf7k62kDz3Mhrrs=
 before_install:
-  - docker -v && docker-compose -v
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-  - chmod +x ./kubectl
-  - sudo mv ./kubectl /usr/local/bin/kubectl
-
-
-
+- docker -v && docker-compose -v
+- sudo rm /usr/local/bin/docker-compose
+- curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
+  -s`-`uname -m` > docker-compose
+- chmod +x docker-compose
+- sudo mv docker-compose /usr/local/bin
+- curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+- chmod +x ./kubectl
+- sudo mv ./kubectl /usr/local/bin/kubectl
 install:
-  - docker build -t zhangyhgg/udacity-restapi-user udacity-c3-restapi-user
+- docker build -t zhangyhgg/udacity-restapi-user udacity-c3-restapi-user
 deploy:
   provider: script
   script: bash docker_push
   on:
     branch: 03-docker-yh
-
