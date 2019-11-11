@@ -1,6 +1,6 @@
 # Microservice practice in cloud-developer udacity course
 content for Udacity's cloud developer nanodegree
-[![Build Status](https://travis-ci.com/JimZhang37/cloud-developer-project-3-microservice.svg?branch=03-docker-yh)](https://travis-ci.com/JimZhang37/cloud-developer-project-3-microservice)
+[![Build Status](https://travis-ci.com/JimZhang37/cloud-developer-project-3-microservice.svg?branch=04-k8s)](https://travis-ci.com/JimZhang37/cloud-developer-project-3-microservice)
 
 # Table of Contents
 * [General Info](#General-Info)
@@ -12,7 +12,7 @@ content for Udacity's cloud developer nanodegree
 
 # General Info
 
-This is the second task and fifth task to turn the app into docker and build the app in Travis CI. My target is to build docker images with docker-compose in travis ci and push these images to to dockerhub in travis ci. Then, I am running command `docker-compose up` in my local pc.
+This is the third task run the app in k8s. In previous tasks, I have built docker images with docker-compose in travis ci and push these images to to dockerhub in travis ci. I was able to run command `docker-compose up` in my local pc to launch the app.
 
 # Tasks
 ## Task 1: 
