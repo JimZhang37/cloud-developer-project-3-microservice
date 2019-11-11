@@ -11,30 +11,30 @@ services:
   backend-user:
     image: zhangyhgg/udacity-restapi-user
     environment:
-      POSTGRESS_USERNAME: $POSTGRESS_USERNAME
-      POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
-      POSTGRESS_DB: $POSTGRESS_DB 
-      POSTGRESS_HOST: $POSTGRESS_HOST
+      POSTGRESS_USERNAME: mydbmydb
+      POSTGRESS_PASSWORD: mydbmydb 
+      POSTGRESS_DB: template1 
+      POSTGRESS_HOST: mydbmydb.cxmmfrmwbxdh.us-east-1.rds.amazonaws.com
       POSTGRESS_DIALECT: postgres 
-      AWS_REGION: $AWS_REGION 
-      AWS_PROFILE: $AWS_PROFILE 
-      AWS_BUCKET: $AWS_BUCKET
-      JWT_SECRET: $JWT_SECRET
+      AWS_REGION: us-east-1 
+      AWS_PROFILE: default 
+      AWS_BUCKET: imagebucket-zhang-dev
+      JWT_SECRET: helloworld
       URL: "http://localhost:8100"
   backend-feed:
     image: zhangyhgg/udacity-restapi-feed
     volumes:
       - $HOME/.aws:/root/.aws
     environment:
-      POSTGRESS_USERNAME: $POSTGRESS_USERNAME
-      POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
-      POSTGRESS_DB: $POSTGRESS_DB 
-      POSTGRESS_HOST: $POSTGRESS_HOST
+      POSTGRESS_USERNAME: mydbmydb
+      POSTGRESS_PASSWORD: mydbmydb 
+      POSTGRESS_DB: template1 
+      POSTGRESS_HOST: mydbmydb.cxmmfrmwbxdh.us-east-1.rds.amazonaws.com
       POSTGRESS_DIALECT: postgres 
-      AWS_REGION: $AWS_REGION 
-      AWS_PROFILE: $AWS_PROFILE 
-      AWS_BUCKET: $AWS_BUCKET
-      JWT_SECRET: $JWT_SECRET
+      AWS_REGION: us-east-1 
+      AWS_PROFILE: default 
+      AWS_BUCKET: imagebucket-zhang-dev
+      JWT_SECRET: helloworld
       URL: "http://localhost:8100"
   frontend:
     image: zhangyhgg/udacity-frontend:local

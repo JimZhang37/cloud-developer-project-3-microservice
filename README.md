@@ -12,7 +12,8 @@ content for Udacity's cloud developer nanodegree
 
 # General Info
 
-This is the second task to turn the app into docker. My target is to upload docker images to dockerhub.
+This is the second task and fifth task to turn the app into docker and build the app in Travis CI. My target is to build docker images with docker-compose in travis ci and push these images to to dockerhub in travis ci. Then, I am running command `docker-compose up` in my local pc.
+
 # Tasks
 ## Task 1: 
 ```
@@ -27,11 +28,11 @@ This is the second task to turn the app into docker. My target is to upload dock
 ```
 1 Create a Dockerfile for all the services
 2 Create a ngnix proxy as Dockerfile
-3 Build the images. You can build all images together with `docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel`, or you can build each image separately with `docker build -t zhangyhgg/udacity-restapi-feed .`
+3 Build the images. When you push a new commit to Github, Travis CI will automatically build your docker images and push them to docker hub for you. Aternatively, you can build all images together with `docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel`, or you can build each image separately with `docker build -t zhangyhgg/udacity-restapi-feed .`
 4 Run the images as container `docker run --publish 8080:8080 --name feed zhangyhgg/udacity-restapi-feed`
 5 Use docker-compose to deploy the completed application `docker-compose up` in the folder where file `docker-compose.yaml` is located.
 ```
-
+In docker-compose's yaml file, parameters from environment are read from local enviornment. Please make sure you have all the values in `~/.bash_profile` or specify all values in the yaml file.
 
 ## Task 3: K8s
 ```
