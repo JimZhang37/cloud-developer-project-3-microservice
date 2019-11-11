@@ -1,5 +1,5 @@
 {
-  "name": "udacity-yh-restapi-user",
+  "name": "udacity-c2-restapi",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
@@ -10,7 +10,7 @@
     "prod": "tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register src/unit-test/*.tests.ts"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
@@ -32,9 +32,12 @@
   "devDependencies": {
     "@types/bluebird": "^3.5.26",
     "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.22",
     "@types/node": "^11.11.6",
     "@types/sequelize": "^4.27.44",
     "@types/validator": "^10.9.0",
+    "@types/mocha": "^5.2.7",
+    "@types/chai": "^4.1.7",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "mocha": "^6.1.4",
