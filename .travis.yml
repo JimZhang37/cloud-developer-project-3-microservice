@@ -21,4 +21,4 @@ deploy:
   provider: script
   script: bash docker_push
   on:
-    branch: 03-docker-yh
+    branch: 04-k8s
