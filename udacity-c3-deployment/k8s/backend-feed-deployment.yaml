@@ -5,14 +5,14 @@ metadata:
     service: backend-feed
   name: backend-feed
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
         service: backend-feed
     spec:
       containers:
-      - image: scheele/udacity-restapi-feed
+      - image: zhangyhgg/udacity-restapi-feed
         name: backend-feed
         imagePullPolicy: Always  
         resources:
@@ -58,6 +58,11 @@ spec:
             configMapKeyRef:
               name: env-config
               key: POSTGRESS_HOST
+        - name: POSTGRESS_DIALECT
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: POSTGRESS_DIALECT
         - name: POSTGRESS_PASSWORD
           valueFrom:
             secretKeyRef:

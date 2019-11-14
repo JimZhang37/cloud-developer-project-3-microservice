@@ -14,6 +14,18 @@ content for Udacity's cloud developer nanodegree
 
 This is the third task run the app in k8s. In previous tasks, I have built docker images with docker-compose in travis ci and push these images to to dockerhub in travis ci. I was able to run command `docker-compose up` in my local pc to launch the app.
 
+In this task, I successfully run all microservices in a k8s cluster created at by AWS EKS. For the sake of testing, I created a new user and the frontend displayed images from AWS S3 bucket. Clearly, configuremap and secret are properperly set. 
+
+* By debugging the problem, I used `kubectl logs pod-name` command to fetch logs from pods. I found that one of my configuremap parameter, database's dialogue, is forgotten and services couldn't run because of this reason. 
+* How to specify an IP to a service. Currently I use `kubectl port-forwarding service/*`, which mapping a remote service in a cluster to my localhost.
+
+Remaining tasks:
+* How to apply service mesh to this project for A/B test.
+* container logs to STDOUT and configue cloud watch log.
+
+Completed:
+* I run a cluster in AWS EKS. Once I delete this cluster, can I delete local kubectl's configuration to this cluster. (If I use `eksctl delete cluster`, kubeconfig will be updated.)
+* How to quickly run all service in a cluster. Currently, I will run commands `kubectl apply -f *` several times to a few files from secrets, deployments to services. (Create a Makefile to automate this task.)
 # Tasks
 ## Task 1: 
 ```
