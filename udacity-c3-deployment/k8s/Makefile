@@ -49,3 +49,6 @@ delete:
 	eksctl delete cluster \
 --name prod \
 --region us-west-2 \
+
+install:
+	helm install stable/mysql --generate-name
