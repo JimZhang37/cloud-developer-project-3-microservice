@@ -2,6 +2,13 @@
 content for Udacity's cloud developer nanodegree
 [![Build Status](https://travis-ci.com/JimZhang37/cloud-developer-project-3-microservice.svg?branch=04-k8s)](https://travis-ci.com/JimZhang37/cloud-developer-project-3-microservice)
 
+In this new branch, I will try to bring new features of k8s to this code base. For example,
+* DNS, loadbalance, CA from cloud provider
+* DFx features, like monitor, logs, etc
+* CICD with jenkins with a complete pipeline
+* deployment strategies like blue/green, A/B test, 
+
+
 # Table of Contents
 * [General Info](#General-Info)
 * [Tasks](#Tasks)
